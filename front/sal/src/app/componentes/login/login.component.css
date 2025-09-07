@@ -1,0 +1,18 @@
+
+.login {
+    width: 360px;
+    background: black;
+    color: white;
+    padding: 25px;
+    border-radius: 22px;
+    margin-left: calc(50% - 180px);
+    margin-top: 234px;
+}
+
+button.btn.btn-primary {
+    width: 80px;
+    background: white;
+    color: black;
+    border-radius: 17px;
+    margin-left: calc(50% - 40px);
+}

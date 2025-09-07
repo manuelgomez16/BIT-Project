@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+.container {
+  display: flex;
+  flex-direction: row; /* Acomoda los elementos en fila */
+  height: 100vh; /* Que ocupe toda la altura de la ventana */
+}

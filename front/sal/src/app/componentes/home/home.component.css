@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+main {
+  margin-top: 60px;
+}
+
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero-section {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: white;
+  padding: 120px 20px;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.solution-description{
+  margin: 18px auto;
+}
+
+.solution-image {
+  max-width: 900px;
+  padding-top: 18px auto;
+  border-radius: 25px
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.btn-primary {
+  background: white;
+  color: black;
+}
+
+.btn-primary:hover {
+  background: #333;
+  color: white;
+}
+
+.btn-secondary {
+  background: black;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(to right, #ff967c, #ffa560);
+  color: black;
+}
+
+.problem-list {
+  list-style: none;
+  max-width: 500px;
+  margin: 30px auto;
+  margin-bottom: 90px;
+  text-align: left;
+}
+
+.benefits-list {
+  list-style: none;
+  max-width: 500px;
+  margin: 30px auto;
+  text-align: left;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature img {
+  height: 350px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.testimonial {
+  background: #f9f9f9;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+.cta-final {
+  background: #333;
+  color: white;
+}
+
+.footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}

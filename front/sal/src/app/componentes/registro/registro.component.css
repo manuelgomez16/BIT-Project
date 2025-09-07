@@ -1,0 +1,17 @@
+.registro {
+    width: 360px;
+    background: black;
+    color: white;
+    margin-left: calc(50% - 180px);
+    padding: 39px;
+    border-radius: 25px;
+    margin-top: 121px;
+}
+
+button.btn.btn-primary {
+    width: 120px;
+    background: white;
+    color: black;
+    border-radius: 17px;
+    margin-left: calc(50% - 60px);
+}

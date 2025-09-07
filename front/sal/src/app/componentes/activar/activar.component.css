@@ -1,0 +1,16 @@
+.formactivar {
+    width: 360px;
+    background: black;
+    color: white;
+    padding: 30px;
+    border-radius: 26px;
+    margin-top: 134px;
+    margin-left: calc(50% - 180px);
+}
+
+button.btn.btn-primary {
+    background: #fff;
+    color: black;
+    width: 150px;
+    margin-left: calc(50% - 75px);
+}

@@ -1,0 +1,64 @@
+#accordionSidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;               /* sidebar width */
+    height: 100vh;              /* full viewport height */
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #31498f 0%, #4e73df 100%);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+}
+
+#accordionSidebar .sidebar-brand {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+#accordionSidebar .nav-item a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+#accordionSidebar .nav-item a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    padding-left: 1.25rem;
+}
+
+#accordionSidebar .nav-item.active a {
+    background: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+#accordionSidebar .sidebar-heading {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+#accordionSidebar hr.sidebar-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0.75rem 0;
+}
+
+#accordionSidebar .sidebar-footer {
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #fff;
+    background: rgba(0,0,0,0.1);
+}
+
+/* Make sure main content doesn't overlap sidebar */
+main {
+    margin-left: 250px;
+    padding: 1rem;
+}

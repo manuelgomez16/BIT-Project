@@ -1,0 +1,48 @@
+#content-wrapper {
+  margin-left: var(--sidebar-width, 200px);
+}
+
+.container-fluid {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #696969;
+}
+
+.lblrol {
+  font-size: 12px;
+  color: #666;
+}
+
+.img-profile {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+
+.chart-c1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

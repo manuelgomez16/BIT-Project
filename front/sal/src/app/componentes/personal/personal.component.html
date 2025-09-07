@@ -1,0 +1,104 @@
+
+<app-header></app-header>
+<div class="main-content">
+
+<h1>LISTADO DE PERSONAL</h1>
+<div >
+
+<div class="table-container">
+  <table class="table-custom">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+         <th>celular</th>
+        <th>Rol</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <ng-container *ngFor="let usuario of datos">
+       <tr (click)="Cargarid(usuario._id)">
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.celular}}</td>
+        <td>{{ usuario.rol }}</td>
+
+      </tr>
+      </ng-container>
+      
+    </tbody>
+  </table>
+</div>
+<div class="btnNuevo" (click)="Nuevo()">
+  <i class="fa-solid fa-plus"></i>
+</div>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+    <label for="email">Email </label>
+    <input type="text" class="form-control" id="email" [(ngModel)]="email" [disabled]="IdSeleccionado != ''">
+
+  </div>
+   <div class="form-group" *ngIf= "IdSeleccionado == ''">
+    <label for="password">password </label>
+    <input type="password" class="form-control" id="password" [(ngModel)]="password">
+
+  </div>
+
+            <div class="form-group" >
+    <label for="nombre">Nombre completo</label>
+    <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre">
+
+  </div>
+  
+            <div class="form-group">
+    <label for="celular">celular </label>
+    <input type="text" class="form-control" id="celular" [(ngModel)]="celular">
+
+  </div>
+
+  <div class="form-group">
+    <label for="rol">Rol</label>
+    <select class="form-control " id="rol" [(ngModel)]="rol">
+      <option value="cliente">cliente</option>
+      <option value="Administrador">Administrador</option>
+      <option value="logistico">logistico</option>
+
+    </select>
+  </div>
+    <div class="form-group">
+    <label for="estado">estado</label>
+    <select class="form-control " id="estado" [(ngModel)]="estado">
+      <option value="Activo" >Activo</option>
+      <option value="Inactivo">inactivo</option>
+     
+
+    </select>
+  </div>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary" (click)="Guardar() " *ngIf= "IdSeleccionado == ''">Guardar</button>
+       <button type="button" class="btn btn-primary" (click)="Actualizar() " *ngIf= "IdSeleccionado != ''">Actualizar</button>
+       <button type="button" class="btn btn-danger" (click)="Eliminar() " *ngIf= "IdSeleccionado != ''">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,58 @@
+.main-content {
+  margin-left: 200px; /* ← Igual al ancho del sidebar */
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.crud-card {
+  background-color: black;
+  padding: 1.5rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.crud-card h3 {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.crud-card form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.crud-card input {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.crud-card button {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.main-content {
+    margin-bottom: -335px;
+}

@@ -1,0 +1,52 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-text mx-3">
+            <img src="SALLogo.png" width="110" height="110" class="d-inline-block align-top" alt="">
+        </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/dashboard">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>⠀Dashboard</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Gestión
+    </div>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/inventario">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>⠀Inventario</span>
+        </a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/personal" *ngIf="rol == 'Administrador'">
+            <i class="fas fa-fw fa-table"></i>
+            <span>⠀Personal</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <div class="sidebar-footer">
+        &copy; 2025 SAL. Todos los derechos reservados.
+    </div>
+
+</ul>
