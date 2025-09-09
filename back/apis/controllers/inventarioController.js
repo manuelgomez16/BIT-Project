@@ -3,12 +3,11 @@ var inventarioController = {}
 
 inventarioController.Guardar = function (request,response) {
     var post ={
-
         codigo:request.body.codigo,
-         nombre:request.body.nombre,
-          descripcion:request.body.descripcion,
-           precio:request.body.precio,
-            cantidad:request.body.cantidad,
+        nombre:request.body.nombre,
+        descripcion:request.body.descripcion,
+        precio:request.body.precio,
+        cantidad:request.body.cantidad,
     }
 
 if (post.codigo == undefined || post.codigo == null || post.codigo == "") {
@@ -44,11 +43,13 @@ inventarioModel.existecodigo(post,function(existe){
 
 
 }
+
 inventarioController.CargarTodas = function (request,response) {
     inventarioModel.CargarTodas(null,function(respuesta){
         response.json(respuesta)
     })
 }
+
 inventarioController.Cargarid = function (request,response) {
    var post = {
     _id:request.params._id
@@ -63,12 +64,13 @@ inventarioModel.Cargarid(post,function(respuesta){
     response.json(respuesta)
 })
 }
+
 inventarioController.Actualizar = function (request,response) {
    var post = {
         _id:request.body._id,
-          descripcion:request.body.descripcion,
-           precio:request.body.precio,
-            cantidad:request.body.cantidad,
+        descripcion:request.body.descripcion,
+        precio:request.body.precio,
+        cantidad:request.body.cantidad,
    }
    
    
@@ -106,6 +108,7 @@ inventarioModel.existeid(post,function(existe){
 
 
 }
+
 inventarioController.Eliminar = function (request,response) {
       var post = {
         _id:request.body._id,

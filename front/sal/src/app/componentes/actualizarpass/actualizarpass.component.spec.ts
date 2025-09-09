@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ActualizarpassComponent } from './actualizarpass.component';
+import { HttpClientModule } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { routes } from '../../app.routes';
 
 describe('ActualizarpassComponent', () => {
   let component: ActualizarpassComponent;
@@ -8,7 +11,8 @@ describe('ActualizarpassComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ActualizarpassComponent]
+      imports: [ActualizarpassComponent, HttpClientModule],
+      providers:[provideRouter(routes)]
     })
     .compileComponents();
 

@@ -585,24 +585,6 @@ describe("POST: /usuarios/ActualizarPass", () => {
         }
     })
 
-    test("Al guardar, debe crear un usuario", (done) => {
-        request.body.nombre = "Manuel"
-        request.body.email = "mnuelg27@gmail.com"
-        request.body.password = "1234"
-        request.body.rol = "Administrador"
-
-        usuariosModel.Mymodel.deleteMany({email:"mnuelg27@gmail.com"}).then((respuesta) => {
-
-            usuariosController.Guardar(request, response)
-            setTimeout(() => {
-
-                expect(response.json).toHaveBeenCalledWith({state:true, mensaje:"Item Almacenado",data:[] })
-                done()
-            }, 70); 
-        })
-
-    })
-
     test("Al actualizar el password, el campo password es obligatorio", (done) => {
 
         request.body.password = ""

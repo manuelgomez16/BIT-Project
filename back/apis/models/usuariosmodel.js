@@ -32,7 +32,7 @@ usuariosModel.Registrar = function(post, callback){
 
         return callback({state:true})
     }).catch((error) => {
-        console.log(error)
+        
         return callback({state:false})
     })
 }
@@ -85,10 +85,10 @@ usuariosModel.Guardar = function(post, callback){
 
 
     instancia.save().then((respuesta) => {
-        console.log(respuesta)
+        
         return callback({state:true})
     }).catch((error) => {
-        console.log(error)
+        
         return callback({state:false})
     })
 }
@@ -118,7 +118,7 @@ usuariosModel.Actualizar = function(post, callback){
         }).then((respuesta) => {
             return callback({state:true})
         }).catch((error) => {
-            console.log(error)
+            
             return callback({state:false})
         })
 }
@@ -130,7 +130,7 @@ usuariosModel.ActualizarPass = function(post, callback){
         }).then((respuesta) => {
             return callback({state:true})
         }).catch((error) => {
-            console.log(error)
+            
             return callback({state:false})
         })
 }
@@ -140,7 +140,7 @@ usuariosModel.Eliminar = function(post, callback){
     Mymodel.findOneAndDelete({_id:post._id}).then((respuesta) => {
             return callback({state:true})
         }).catch((error) => {
-            console.log(error)
+            
             return callback({state:false})
         })
 }
@@ -150,7 +150,7 @@ usuariosModel.SolicitudRecuperarPass = function(post, callback){
     Mymodel.findOneAndUpdate({email:post.email}, {codigorec: post.codigo}).then((respuesta) => {
         return callback({state:true})
     }).catch((error) => {
-        console.log(error)
+        
         return callback({state:false})
     })
 }
@@ -160,7 +160,7 @@ usuariosModel.RecuperarPass = function(post, callback){
     Mymodel.findOneAndUpdate({email:post.email}, {codigorec: post.codigo}, {password:post.password}).then((respuesta) => {
         return callback({respuesta})
     }).catch((error) => {
-        console.log(error)
+        
         return callback({state:false})
     })
 }

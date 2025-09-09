@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InventarioComponent } from './inventario.component';
+import { HttpClientModule } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { routes } from '../../app.routes';
 
 describe('InventarioComponent', () => {
   let component: InventarioComponent;
@@ -8,7 +11,8 @@ describe('InventarioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InventarioComponent]
+      imports: [InventarioComponent, HttpClientModule],
+      providers:[provideRouter(routes)]
     })
     .compileComponents();
 

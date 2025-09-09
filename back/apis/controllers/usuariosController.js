@@ -90,7 +90,6 @@ var post = {
         rol:request.body.rol,
         celular:request.body.celular
     }
-    console.log(post)
 
     if([undefined, null, ""].indexOf(post._id) >= 0){
         response.status(200).json({state:false, mensaje:"El campo _id es obligatorio"})
@@ -159,8 +158,6 @@ usuariosController.Eliminar = function(request, response){
     })
 
 }
-
-
 
 usuariosController.Registrar = function(request, response){
 
@@ -232,11 +229,11 @@ usuariosController.Registrar = function(request, response){
 
                     transporter.sendMail(mailOptions, (error, info) => {
                         if(error){
-                            console.log(error)
+                            
                             response.json({state:false, mensaje:"Error enviando el correo"})
                         }
                         else{
-                            console.log(info)
+                            
                             response.json({state:true, mensaje:"Usuario Registrado Correctamente verifique su bandeja"})
                         }
                     })
@@ -273,7 +270,7 @@ usuariosController.Login = function(request, response){
     post.password = sha256(post.password + config.clavesecreta)
 
     usuariosModel.Login(post,function(respuesta){
-        console.log(respuesta)
+        
         if(respuesta.length == 0){
             response.json({state:false, mensaje:"credenciales invalidas"})
         }
@@ -366,11 +363,11 @@ usuariosController.SolicitudRecuperarPass = function(request, response){
 
                     transporter.sendMail(mailOptions, (error, info) => {
                         if(error){
-                            console.log(error)
+                            
                             response.json({state:false, mensaje:"Error enviando el correo"})
                         }
                         else{
-                            console.log(info)
+                        
                             response.json({state:true, mensaje:"Hemos enviado el codigo de recuperación a su bandeja"})
                         }
                     })
