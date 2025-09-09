@@ -21,7 +21,8 @@ config.email.pass = "qnbfuaznukcmqlmz"
 config.listablanca = [
     "http://localhost:4200",
     "http://localhost:3000",
-    "http://192.168.80.26.3000"
+    "http://192.168.80.26.3000",
+    "http://localhost:9876"
 ]
 
 
