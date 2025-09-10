@@ -20,6 +20,7 @@ export class PersonalComponent implements  OnInit{
   password:string = ""
   celular:string = ""
   IdSeleccionado: string = ""
+  respuestaapi:any = {}
 
 constructor (private peticion:PeticionService){}
 
@@ -33,11 +34,11 @@ Nuevo(){
 }
 
 CargarTodas() {
-  let url = this.peticion.urlreal + "/usuarios/CargarTodas"; // ✅ armo la URL completa
+  let url = this.peticion.urlreal + "/usuarios/CargarTodas";
 
-  this.peticion.get(url).then((res: any) => {
+  this.peticion.get(url).then((res: any) => { 
     console.log("Respuesta del backend:", res);
-    this.datos = res.datos.datos; // ✅ ahora sí asigna el array correcto
+    this.datos = res.datos.datos;
     console.log("usuarios cargados:", this.datos)
   });
 }
@@ -58,7 +59,7 @@ Guardar(){
    }
 
    this.peticion.post(post.host + post.path,post.payload).then((res:any) => {
-    
+    this.respuestaapi = res    
     
         Swal.fire({
       title: res.state == true? "Que bien":"Ouch",

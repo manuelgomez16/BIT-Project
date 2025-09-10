@@ -15,7 +15,7 @@ declare var  Swal:any
 })
 export class InventarioComponent implements OnInit {
 
-constructor( private peticion:PeticionService){}
+constructor( public peticion:PeticionService){}
 datos:any[] =[] 
 nombre:string =""
 codigo:string =""
@@ -23,12 +23,13 @@ descripcion:string=""
 cantidad:string="0"
 precio:string= ""
 IdSeleccionado: string = ""
+respuestaapi:any = {}
 
   ngOnInit(): void {
     this.CargarTodas()
   }
   CargarTodas(){
-       let post = {
+    let post = {
     host:this.peticion.urlreal,
     path:"/inventario/CargarTodas",
     payload:{}
@@ -44,14 +45,14 @@ IdSeleccionado: string = ""
   $('#exampleModal').modal('show')
   }
   limpiar(){
-this.codigo=""
-this.nombre=""
-this.descripcion=""
-this.cantidad="0"
-this.precio=""
+    this.codigo=""
+    this.nombre=""
+    this.descripcion=""
+    this.cantidad="0"
+    this.precio=""
   }
-Guardar(){
-     let post = {
+  Guardar(){
+    let post = {
     host:this.peticion.urlreal,
     path:"/inventario/Guardar",
     payload:{
@@ -60,12 +61,11 @@ Guardar(){
     descripcion:this.descripcion,
     cantidad:this.cantidad,
     precio:this.precio
-    
     }
    }
 
    this.peticion.post(post.host + post.path,post.payload).then((res:any) => {
-    
+    this.respuestaapi = res    
     
         Swal.fire({
       title: res.state == true? "Que bien":"Ouch",
@@ -78,9 +78,9 @@ Guardar(){
       }
    })
 }
-Cargarid(identificador:string){
+  Cargarid(identificador:string){
 
- this.IdSeleccionado = identificador
+  this.IdSeleccionado = identificador
 
    let post = {
     host:this.peticion.urlreal,
@@ -91,7 +91,8 @@ Cargarid(identificador:string){
    }
 
    this.peticion.get(post.host + post.path).then((res:any) => {
-    console.log(res)
+    this.respuestaapi = res 
+    
     this.codigo = res[0].codigo
     this.nombre = res[0].nombre
     this.descripcion = res[0].descripcion
@@ -102,8 +103,8 @@ Cargarid(identificador:string){
 
    })
 }
-Actualizar(){
- let post = {
+  Actualizar(){
+    let post = {
     host:this.peticion.urlreal,
     path:"/inventario/Actualizar",
     payload:{
@@ -115,9 +116,10 @@ Actualizar(){
    }
 
    this.peticion.put(post.host + post.path,post.payload).then((res:any) => {
+    this.respuestaapi = res 
     
     
-        Swal.fire({
+  Swal.fire({
       title: res.state == true? "Que bien":"Ouch",
       text: res.mensaje,
       icon: res.state == true?"success":"error"
@@ -127,10 +129,9 @@ Actualizar(){
         this.CargarTodas()
       }
    })
-
-
 }
-Eliminar(){
+
+  Eliminar(){
    let post = {
     host:this.peticion.urlreal,
     path:"/inventario/Eliminar",
@@ -138,22 +139,19 @@ Eliminar(){
     _id:this.IdSeleccionado
     }
 }
-this.peticion.Delete(post.host + post.path,post.payload).then((res:any) => {
+    this.peticion.Delete(post.host + post.path,post.payload).then((res:any) => {
+      this.respuestaapi = res
+
           Swal.fire({
-      title: res.state == true? "Que bien":"Ouch",
-      text: res.mensaje,
-      icon: res.state == true?"success":"error"
-      });
-      if(res.state == true){
-        $('#exampleModal').modal('hide')
-        this.CargarTodas()
-      }
-})
-}
-
-
-
-
-
+          title: res.state == true? "Que bien":"Ouch",
+          text: res.mensaje,
+          icon: res.state == true?"success":"error"
+          });
+          if(res.state == true){
+            $('#exampleModal').modal('hide')
+            this.CargarTodas()
+          }
+    })
+    }
 
 }

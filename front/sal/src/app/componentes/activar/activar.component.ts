@@ -21,11 +21,12 @@ export class ActivarComponent {
 constructor(private actroute: ActivatedRoute,private peticion: PeticionService , private routes : Router){}
 email:string = ""
 codigo:string = ""
+respuestaapi:any = {}
 
 
 ngOnInit(): void {
   this.email = this.actroute.snapshot.params["email"]
-this.codigo = this.actroute.snapshot.params["codigo"]
+  this.codigo = this.actroute.snapshot.params["codigo"]
 }
 
 
@@ -43,6 +44,7 @@ Activar(){
   }
     console.log(post)
   this.peticion.post(post.host + post.path,post.payload).then((res:any) => {
+    this.respuestaapi = res
 
        Swal.fire({
           title: res.state == true? "Que bien":"Ouch",

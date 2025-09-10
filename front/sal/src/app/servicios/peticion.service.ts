@@ -42,7 +42,7 @@ export class PeticionService {
 
   }
 
-get(url: string) {
+  get(url: string) {
   return new Promise((resolve, reject) => {
     this.requestOptions = {
       headers: new HttpHeaders({}),
@@ -56,7 +56,7 @@ get(url: string) {
 }
 
 
-    put (url:string,payload:{}){
+  put (url:string,payload:{}){
   
     let promise:any = new Promise((resolve, reject) => {
     this.requestOptions = {
