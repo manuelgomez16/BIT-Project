@@ -120,7 +120,7 @@ describe('InventarioComponent', () => {
         expect(component.descripcion).toBe(res[0].descripcion);
         expect(component.precio).toBe(res[0].precio);
         expect(component.cantidad).toBe(res[0].cantidad);
-        done();
+        done()
       }, 300);
     });
   })
@@ -188,6 +188,36 @@ describe('InventarioComponent', () => {
         done()
       }, 300);
     });
+  })
+
+  it("Validar que el campo id sea obligatorio al eliminar un item", (done) => {
+      fixture = TestBed.createComponent(InventarioComponent);
+      component = fixture.componentInstance;
+  
+      component.IdSeleccionado=""
+  
+      component.Eliminar()
+      setTimeout(() => {
+        expect(component.respuestaapi.mensaje).toBe('el campo _id es obligatorio')
+        done()
+      }, 30)
+  })
+
+  it("Validar que el campo id sea obligatorio al eliminar un item", (done) => {
+      fixture = TestBed.createComponent(InventarioComponent);
+      component = fixture.componentInstance;
+
+      (component as any).peticion.get((component as any).peticion.urlreal + "/inventario/CargarTodas").then((res: any) => {
+      
+      component.IdSeleccionado=idtemporal = res[0]._id
+  
+      component.Eliminar()
+      setTimeout(() => {
+        expect(component.respuestaapi.mensaje).toBe('se ha Eliminado el elemento')
+        done()
+      }, 30);
+      })
+      
   })
 
 });
