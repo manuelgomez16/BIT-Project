@@ -88,21 +88,21 @@ describe('RegistroComponent', () => {
     }, 300);
   })
 
-  // it("Validar cree el usuario en el frontend", (done) => {
-  //   fixture = TestBed.createComponent(RegistroComponent);
-  //   component = fixture.componentInstance;
+  it("Validar que se cree el usuario en el frontend", (done) => {
+    fixture = TestBed.createComponent(RegistroComponent);
+    component = fixture.componentInstance;
 
-  //   var random = Math.floor(Math.random() * (99999 * 99999) + 100000)
+    var random = Math.floor(Math.random() * (99999 * 99999) + 100000)
 
-  //   component.nombre = "Manuel"
-  //   component.email = "testsal"+ random + "@gmail.com"
-  //   component.password = "1234"
+    component.nombre = "Pepe"
+    component.email = "testsal"+ random + "@gmail.com"
+    component.password = "1234"
 
-  //   component.registrar()
-  //   setTimeout(() => {
-  //     expect(component.respuestaapi.mensaje).toBe('el campo password es obligatorio')
-  //     done()
-  //   }, 300);
-  // })
+    component.registrar()
+    setTimeout(() => {
+      expect(component.respuestaapi.mensaje).toBe('Usuario Registrado Correctamente verifique su bandeja')
+      done()
+    }, 4000);
+  })
 
 });
