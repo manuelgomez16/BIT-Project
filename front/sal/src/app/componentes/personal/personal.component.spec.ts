@@ -99,7 +99,7 @@ describe('PersonalComponent', () => {
       setTimeout(() => {
         expect(component.respuestaapi.mensaje).toBe('Item Almacenado')
         done()
-      }, 4000);
+      }, 300);
     })
 
 });
