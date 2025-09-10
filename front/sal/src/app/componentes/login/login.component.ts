@@ -23,6 +23,7 @@ constructor(private actroute:ActivatedRoute,private peticion:PeticionService, pr
 
 email:string = ""
 password:string = ""
+respuestaapi:any = {}
 
 iniciar(){
 let post = {
@@ -36,6 +37,8 @@ let post = {
 }
   
 this.peticion.post(post.host + post.path,post.payload).then((res:any) => {
+  this.respuestaapi = res
+  
        Swal.fire({
           title: res.state == true? "Que bien":"Ouch",
           text: res.mensaje,

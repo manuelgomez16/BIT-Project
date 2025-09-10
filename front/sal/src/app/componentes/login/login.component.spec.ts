@@ -24,4 +24,61 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it("Validar que el el campo email sea obligatorio en el login", (done) => {
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+
+    component.email = ""
+    component.password = ""
+
+    component.iniciar()
+    setTimeout(() => {
+      expect(component.respuestaapi.mensaje).toBe('El campo email es Obligatorio')
+      done()
+    }, 300);
+  })
+
+  it("Validar que el el campo password sea obligatorio en el login", (done) => {
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+
+    component.email = "testsal@gmail.com"
+    component.password = ""
+
+    component.iniciar()
+    setTimeout(() => {
+      expect(component.respuestaapi.mensaje).toBe('El campo password es Obligatorio')
+      done()
+    }, 300);
+  })
+
+  it("Validar que el las credenciales fallen en el login", (done) => {
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+
+    component.email = "testsal@gmail.com"
+    component.password = "xxxxx"
+
+    component.iniciar()
+    setTimeout(() => {
+      expect(component.respuestaapi.mensaje).toBe('credenciales invalidas')
+      done()
+    }, 300);
+  })
+
+  it("Validar que el las credenciales no fallen en el login", (done) => {
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+
+    component.email = "mnuelg27@gmail.com"
+    component.password = "1234"
+
+    component.iniciar()
+    setTimeout(() => {
+      expect(component.respuestaapi.mensaje).toBe('Bienvenido Manuel')
+      done()
+    }, 300);
+  })
+
 });

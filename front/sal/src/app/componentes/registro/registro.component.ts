@@ -19,6 +19,7 @@ export class RegistroComponent {
     nombre:string = ""
     email:string = ""
     password:string = ""
+    respuestaapi:any = {}
 
     registrar(){
   
@@ -34,6 +35,7 @@ export class RegistroComponent {
 
    this.peticion.post(post.host + post.path,post.payload).then((res:any) => {
     console.log(res)
+    this.respuestaapi = res
     if(res.state == false){
       Swal.fire({
       title: "Ouch",
