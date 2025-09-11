@@ -36,7 +36,7 @@ respuestaapi:any = {}
    }
 
    this.peticion.get(post.host + post.path).then((res:any) => {
-    this.datos = res
+    this.datos = res  
    })
   }
   Nuevo(){
@@ -98,7 +98,7 @@ respuestaapi:any = {}
     this.descripcion = res[0].descripcion
     this.precio = res[0].precio
     this.cantidad = res[0].cantidad
-     $('#exampleModal').modal('show')
+    $('#exampleModal').modal('show')
 
 
    })
