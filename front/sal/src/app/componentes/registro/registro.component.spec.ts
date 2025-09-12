@@ -4,6 +4,7 @@ import { RegistroComponent } from './registro.component';
 import { HttpClientModule } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { routes } from '../../app.routes';
+import Swal from 'sweetalert2';
 
 describe('RegistroComponent', () => {
   let component: RegistroComponent;
@@ -25,10 +26,7 @@ describe('RegistroComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  //Fix later//
-
-
-  it("Validar que el nombre sea obligatorio en el frontend al registrar", (done) => {
+  it("Validar que el nombre sea obligatorio en el frontend al registrar", async () => {
     fixture = TestBed.createComponent(RegistroComponent);
     component = fixture.componentInstance;
 
@@ -37,13 +35,15 @@ describe('RegistroComponent', () => {
     component.password = ""
 
     component.registrar()
-    setTimeout(() => {
+
+    await fixture.whenStable();
+    fixture.detectChanges();
+
       expect(component.respuestaapi.mensaje).toBe('El campo nombre es Obligatorio')
-      done()
-    }, 300);
+      Swal.close();
   })
 
-  it("Validar que el email sea obligatorio en el frontend al registrar", (done) => {
+  it("Validar que el email sea obligatorio en el frontend al registrar", async () => {
     fixture = TestBed.createComponent(RegistroComponent);
     component = fixture.componentInstance;
 
@@ -52,13 +52,14 @@ describe('RegistroComponent', () => {
     component.password = ""
 
     component.registrar()
-    setTimeout(() => {
+
+    await fixture.whenStable();
+    fixture.detectChanges();
       expect(component.respuestaapi.mensaje).toBe('El campo email es Obligatorio')
-      done()
-    }, 300);
+      Swal.close();
   })
 
-  it("Validar que el password sea obligatorio en el frontend al registrar", (done) => {
+  it("Validar que el password sea obligatorio en el frontend al registrar", async () => {
     fixture = TestBed.createComponent(RegistroComponent);
     component = fixture.componentInstance;
 
@@ -67,13 +68,14 @@ describe('RegistroComponent', () => {
     component.password = ""
 
     component.registrar()
-    setTimeout(() => {
+
+    await fixture.whenStable();
+    fixture.detectChanges();
       expect(component.respuestaapi.mensaje).toBe('El campo password es Obligatorio')
-      done()
-    }, 300);
+      Swal.close();
   })
 
-  it("Validar que el el correo ya exista", (done) => {
+  it("Validar que el el correo ya exista", async () => {
     fixture = TestBed.createComponent(RegistroComponent);
     component = fixture.componentInstance;
 
@@ -82,13 +84,15 @@ describe('RegistroComponent', () => {
     component.password = "1234"
 
     component.registrar()
-    setTimeout(() => {
+
+    await fixture.whenStable();
+    fixture.detectChanges();
+
       expect(component.respuestaapi.mensaje).toBe('El correo electronico ya esta en uso intente con otro')
-      done()
-    }, 300);
+      Swal.close();
   })
 
-  it("Validar que se cree el usuario en el frontend", (done) => {
+  it("Validar que se cree el usuario en el frontend", async () => {
     fixture = TestBed.createComponent(RegistroComponent);
     component = fixture.componentInstance;
 
@@ -99,10 +103,12 @@ describe('RegistroComponent', () => {
     component.password = "1234"
 
     component.registrar()
-    setTimeout(() => {
+
+    await fixture.whenStable();
+    fixture.detectChanges();
+
       expect(component.respuestaapi.mensaje).toBe('Usuario Registrado Correctamente verifique su bandeja')
-      done()
-    }, 4000);
+      Swal.close();
   })
 
-});
+})
