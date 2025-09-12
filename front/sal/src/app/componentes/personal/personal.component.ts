@@ -126,6 +126,7 @@ Actualizar(){
    }
 
    this.peticion.put(post.host + post.path,post.payload).then((res:any) => {
+    this.respuestaapi = res 
     
     
         Swal.fire({
@@ -151,6 +152,7 @@ Eliminar(){
     }
 }
 this.peticion.Delete(post.host + post.path,post.payload).then((res:any) => {
+  this.respuestaapi = res 
           Swal.fire({
       title: res.state == true? "Que bien":"Ouch",
       text: res.mensaje,

@@ -4,6 +4,7 @@ import { ActivarComponent } from './activar.component';
 import { provideRouter } from '@angular/router';
 import { routes } from '../../app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 describe('ActivarComponent', () => {
   let component: ActivarComponent;
@@ -25,7 +26,7 @@ describe('ActivarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("Validar que el campo email sea obligatorio al activar una cuenta", (done) => {
+  it("Validar que el campo email sea obligatorio al activar una cuenta", async () => {
         fixture = TestBed.createComponent(ActivarComponent);
         component = fixture.componentInstance;
 
@@ -33,13 +34,15 @@ describe('ActivarComponent', () => {
         component.codigo=""
     
         component.Activar()
-        setTimeout(() => {
+        
+        await fixture.whenStable();
+        fixture.detectChanges();
+
           expect(component.respuestaapi.mensaje).toBe('El campo email es Obligatorio')
-          done()
-        }, 30);
+          Swal.close();
     })
 
-    it("Validar que el campo codigo sea obligatorio al activar una cuenta", (done) => {
+    it("Validar que el campo codigo sea obligatorio al activar una cuenta", async () => {
         fixture = TestBed.createComponent(ActivarComponent);
         component = fixture.componentInstance;
 
@@ -47,13 +50,15 @@ describe('ActivarComponent', () => {
         component.codigo=""
     
         component.Activar()
-        setTimeout(() => {
+        
+        await fixture.whenStable();
+        fixture.detectChanges();
+
           expect(component.respuestaapi.mensaje).toBe('El campo codigo es Obligatorio')
-          done()
-        }, 30);
+          Swal.close();
     })
 
-    it("Validar que el codigo sea invalido al activar una cuenta", (done) => {
+    it("Validar que el codigo sea invalido al activar una cuenta", async () => {
         fixture = TestBed.createComponent(ActivarComponent);
         component = fixture.componentInstance;
 
@@ -61,13 +66,15 @@ describe('ActivarComponent', () => {
         component.codigo="xxxxx"
     
         component.Activar()
-        setTimeout(() => {
+        
+        await fixture.whenStable();
+        fixture.detectChanges();
+
           expect(component.respuestaapi.mensaje).toBe('El codigo de activacion es invalido')
-          done()
-        }, 30);
+          Swal.close();
     })
 
-    it("Validar que el codigo sea valido al activar una cuenta", (done) => {
+    it("Validar que el codigo sea valido al activar una cuenta", async () => {
         fixture = TestBed.createComponent(ActivarComponent);
         component = fixture.componentInstance;
 
@@ -75,10 +82,12 @@ describe('ActivarComponent', () => {
         component.codigo="A-5868"
     
         component.Activar()
-        setTimeout(() => {
+        
+        await fixture.whenStable();
+        fixture.detectChanges();
+
           expect(component.respuestaapi.mensaje).toBe('Cuenta activada correctamente')
-          done()
-        }, 30);
+          Swal.close();
     })
 
 });

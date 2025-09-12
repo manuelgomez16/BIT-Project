@@ -4,6 +4,7 @@ import { LoginComponent } from './login.component';
 import { provideRouter } from '@angular/router';
 import { routes } from '../../app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import Swal from 'sweetalert2';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -25,7 +26,7 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("Validar que el el campo email sea obligatorio en el login", (done) => {
+  it("Validar que el el campo email sea obligatorio en el login", async () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
 
@@ -33,13 +34,15 @@ describe('LoginComponent', () => {
     component.password = ""
 
     component.iniciar()
-    setTimeout(() => {
+    
+    await fixture.whenStable();
+    fixture.detectChanges();
+
       expect(component.respuestaapi.mensaje).toBe('El campo email es Obligatorio')
-      done()
-    }, 300);
+      Swal.close();
   })
 
-  it("Validar que el el campo password sea obligatorio en el login", (done) => {
+  it("Validar que el el campo password sea obligatorio en el login", async () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
 
@@ -47,13 +50,15 @@ describe('LoginComponent', () => {
     component.password = ""
 
     component.iniciar()
-    setTimeout(() => {
+    
+    await fixture.whenStable();
+    fixture.detectChanges();
+
       expect(component.respuestaapi.mensaje).toBe('El campo password es Obligatorio')
-      done()
-    }, 300);
+      Swal.close();
   })
 
-  it("Validar que el las credenciales fallen en el login", (done) => {
+  it("Validar que el las credenciales fallen en el login", async () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
 
@@ -61,13 +66,15 @@ describe('LoginComponent', () => {
     component.password = "xxxxx"
 
     component.iniciar()
-    setTimeout(() => {
+    
+    await fixture.whenStable();
+    fixture.detectChanges();
+
       expect(component.respuestaapi.mensaje).toBe('credenciales invalidas')
-      done()
-    }, 300);
+      Swal.close();
   })
 
-  it("Validar que el las credenciales no fallen en el login", (done) => {
+  it("Validar que el las credenciales no fallen en el login", async () => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
 
@@ -75,10 +82,12 @@ describe('LoginComponent', () => {
     component.password = "1234"
 
     component.iniciar()
-    setTimeout(() => {
+    
+    await fixture.whenStable();
+    fixture.detectChanges();
+
       expect(component.respuestaapi.mensaje).toBe('Bienvenido Manuel')
-      done()
-    }, 300);
+      Swal.close();
   })
 
 });
