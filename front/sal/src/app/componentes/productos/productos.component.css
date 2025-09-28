@@ -1,15 +1,16 @@
+
 .main-content {
   margin-left: 250px;
   padding: 20px;
 }
 h1 {
-  text-align: center;
+    text-align: center;
 }
 
 /* Contenedor de la tabla */
 .table-container {
   background: #fff;
-  border-radius: 0.75rem;
+  border-radius: 0.75rem; /* Bordes redondeados */
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   padding: 1rem;
   margin-top: 1.5rem;
@@ -23,55 +24,76 @@ h1 {
   font-size: 0.95rem;
   color: #333;
 }
+
 .table-custom thead {
-  background: #f8f9fc;
-  color: #000000;
+  background: #f8f9fc; /* Fondo claro */
+  color: #000000;      /* Azul similar a tus títulos */
   font-weight: 600;
 }
+
 .table-custom thead th {
   padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 2px solid #e3e6f0;
 }
+
 .table-custom tbody tr {
   transition: background 0.2s ease-in-out;
 }
+
 .table-custom tbody tr:hover {
   background: #f1f3f9;
 }
+
 .table-custom td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e3e6f0;
   vertical-align: middle;
 }
+
 /* Alternar filas */
 .table-custom tbody tr:nth-child(even) {
   background: #fafbfe;
 }
 
-/* Badges */
+/* Badge estilos para roles o estados */
 .badge {
   padding: 0.35em 0.65em;
   border-radius: 0.5rem;
   font-size: 0.8rem;
   font-weight: 500;
 }
+
 .badge-success {
   background: #1cc88a;
   color: #fff;
 }
+
 .badge-warning {
   background: #f6c23e;
   color: #fff;
 }
+
 .badge-danger {
   background: #e74a3b;
   color: #fff;
 }
+::before {
+    position: absolute;
+    right: 26px;
+    background: #4e73df;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    font-size: 42px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    bottom: 15px;
+}
 
-/* Botón flotante Nuevo */
 .btnNuevo {
-  position: fixed;       /* siempre visible */
+  position: fixed;
   bottom: 20px;
   right: 20px;
   display: flex;
@@ -79,16 +101,12 @@ h1 {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: #4e73df;   /* color base */
   color: #fff;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   z-index: 1000;
 }
-.btnNuevo:hover {
-  background: #2e59d9;
-}
+
 .btnNuevo i {
   font-size: 20px;
 }

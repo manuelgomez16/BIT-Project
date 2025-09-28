@@ -94,86 +94,25 @@ Renueva tu sonido con lo mejor en guitarras, teclados, baterías y más.</p>
 </div>
 
 <div class="container">
-    <div class="card-deck mb-3 text-center">
-
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Bajo Electrico LTD Surveyor87 BLK</h4>
-      </div>
-      <div class="card-body">
-        <div class="imagenbajo">
-          <img src="bajo1.jpg" width="260" height="300" class="d-inline-block align-top" alt="">
-          <h4>$ 5.350.000</h4>
+  <!-- Card deck flex grid -->
+  <div class="card-deck mb-3 text-center">
+    <ng-container *ngFor="let item of datos">
+      <div class="card mb-4 shadow-sm" (click)="Cargarid(item._id)">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">{{ item.nombre }}</h4>
         </div>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Añadir al carrito</button>
-      </div>
-    </div>
-
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Guitarra Electrica Schecter Damien</h4>
-      </div>
-      <div class="card-body">
-        <div class="imagenbajo">
-          <img src="Guitarra.png" width="260" height="300" class="d-inline-block align-top" alt="">
-          <h4>$ 5.120.000</h4>
+        <div class="card-body">
+          <div class="imagenbajo">
+            <img src="bajo1.jpg" class="d-inline-block align-top" alt="" />
+            <h4>Cantidad: {{ item.cantidad }}</h4>
+            <h4>{{ item.precio | currency: 'COP $' }}</h4>
+          </div>
+          <button type="button" class="btn btn-lg btn-block btn-outline-primary">
+            Añadir al carrito
+          </button>
         </div>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Añadir al carrito</button>
       </div>
-    </div>
-
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Guitarra Acustica Flamenca Cordoba F7</h4>
-      </div>
-      <div class="card-body">
-        <div class="imagenbajo">
-          <img src="guitarra2.jpg" width="260" height="300" class="d-inline-block align-top" alt="">
-          <h4>$ 2.550.000</h4>
-        </div>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Añadir al carrito</button>
-      </div>
-    </div>
-
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Guitarra Electrica Schecter C-1</h4>
-      </div>
-      <div class="card-body">
-        <div class="imagenbajo">
-          <img src="guitarra3.jpg" width="260" height="300" class="d-inline-block align-top" alt="">
-          <h4>$ 1.850.000</h4>
-        </div>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Añadir al carrito</button>
-      </div>
-    </div>
-
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">BAJO ELECTRICO PEAVEY 4</h4>
-      </div>
-      <div class="card-body">
-        <div class="imagenbajo">
-          <img src="bajo2.jpg" width="260" height="300" class="d-inline-block align-top" alt="">
-          <h4>$ 1.150.000</h4>
-        </div>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Añadir al carrito</button>
-      </div>
-    </div>
-
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">BAJO SCHECTER C-4 PLUS SKU</h4>
-      </div>
-      <div class="card-body">
-        <div class="imagenbajo">
-          <img src="bajo3.png" width="260" height="300" class="d-inline-block align-top" alt="">
-          <h4>$ 2.690.000</h4>
-        </div>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Añadir al carrito</button>
-      </div>
-    </div>
-
+    </ng-container>
   </div>
 </div>
 

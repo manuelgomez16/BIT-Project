@@ -9,6 +9,7 @@ declare var  Swal:any
 
 @Component({
   selector: 'app-inventario',
+  standalone: true,
   imports: [HeaderComponent,CommonModule,FormsModule],
   templateUrl: './inventario.component.html',
   styleUrls: ['./inventario.component.css']
@@ -16,13 +17,14 @@ declare var  Swal:any
 export class InventarioComponent implements OnInit {
 
 constructor( public peticion:PeticionService){}
-datos:any[] =[] 
+datos:any[] = [] 
 nombre:string =""
 codigo:string =""
 descripcion:string=""
 cantidad:string="0"
 precio:string= ""
 IdSeleccionado: string = ""
+selectedFile!:File
 respuestaapi:any = {}
 
   ngOnInit(): void {
@@ -152,6 +154,13 @@ respuestaapi:any = {}
             this.CargarTodas()
           }
     })
+}
+
+  uploadFile(){
+    var post = {
+      host:this.peticion.urlreal,
+      path:""
     }
+  }
 
 }

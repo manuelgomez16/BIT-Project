@@ -1,57 +1,157 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { PeticionService } from '../../servicios/peticion.service';
+import { FormsModule } from '@angular/forms';
+declare var $:any
+declare var  Swal:any
 
-import { FooterComponent } from '../footer/footer.component';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-
-interface Producto {
-  _id?: string;
-  codigo: string;
-  nombre: string;
-  precio: number;
-}
 
 @Component({
-  selector: 'app-productos',
-  standalone: true,
-  imports: [CommonModule, FooterComponent, SidebarComponent],
+  selector: 'app-inventario',
+  imports: [HeaderComponent,CommonModule,FormsModule],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
 
-  productos: Producto[] = [];
-  nuevoProducto: Producto = { codigo: '', nombre: '', precio: 0 };
-  apiUrl = '/api/productos'; // ajusta a tu ruta real en tu backend
-
-  constructor(private http: HttpClient) {}
+constructor( public peticion:PeticionService){}
+datos:any[] =[] 
+nombre:string =""
+codigo:string =""
+descripcion:string=""
+cantidad:string="0"
+precio:string= ""
+IdSeleccionado: string = ""
+respuestaapi:any = {}
 
   ngOnInit(): void {
-    this.cargarProductos();
+    this.CargarTodas()
   }
+  CargarTodas(){
+    let post = {
+    host:this.peticion.urlreal,
+    path:"/inventario/CargarTodas",
+    payload:{}
+   }
 
-  cargarProductos(): void {
-    this.http.get<Producto[]>(`${this.apiUrl}/listar`).subscribe({
-      next: (data) => (this.productos = data),
-      error: (err) => console.error('Error cargando productos', err)
-    });
+   this.peticion.get(post.host + post.path).then((res:any) => {
+    this.datos = res  
+   })
   }
+  Nuevo(){
+  this.limpiar()
+  this.IdSeleccionado = "" 
+  $('#exampleModal').modal('show')
+  }
+  limpiar(){
+    this.codigo=""
+    this.nombre=""
+    this.descripcion=""
+    this.cantidad="0"
+    this.precio=""
+  }
+  Guardar(){
+    let post = {
+    host:this.peticion.urlreal,
+    path:"/inventario/Guardar",
+    payload:{
+    nombre:this.nombre,
+    codigo:this.codigo,
+    descripcion:this.descripcion,
+    cantidad:this.cantidad,
+    precio:this.precio
+    }
+   }
 
-  guardarProducto(): void {
-    this.http.post(`${this.apiUrl}/guardar`, this.nuevoProducto).subscribe({
-      next: () => {
-        this.nuevoProducto = { codigo: '', nombre: '', precio: 0 };
-        this.cargarProductos();
-      },
-      error: (err) => console.error('Error guardando producto', err)
-    });
-  }
+   this.peticion.post(post.host + post.path,post.payload).then((res:any) => {
+    this.respuestaapi = res    
+    
+        Swal.fire({
+      title: res.state == true? "Que bien":"Ouch",
+      text: res.mensaje,
+      icon: res.state == true?"success":"error"
+      });
+      if(res.state == true){
+        $('#exampleModal').modal('hide')
+        this.CargarTodas()
+      }
+   })
+}
+  Cargarid(identificador:string){
 
-  eliminarProducto(id: string): void {
-    this.http.post(`${this.apiUrl}/eliminar`, { _id: id }).subscribe({
-      next: () => this.cargarProductos(),
-      error: (err) => console.error('Error eliminando producto', err)
-    });
-  }
+  this.IdSeleccionado = identificador
+
+   let post = {
+    host:this.peticion.urlreal,
+    path:"/inventario/Cargarid/" + identificador,
+    payload:{
+      _id:identificador
+    }
+   }
+
+   this.peticion.get(post.host + post.path).then((res:any) => {
+    this.respuestaapi = res 
+    
+    this.codigo = res[0].codigo
+    this.nombre = res[0].nombre
+    this.descripcion = res[0].descripcion
+    this.precio = res[0].precio
+    this.cantidad = res[0].cantidad
+    $('#exampleModal').modal('show')
+
+
+   })
+}
+  Actualizar(){
+    let post = {
+    host:this.peticion.urlreal,
+    path:"/inventario/Actualizar",
+    payload:{
+    cantidad:this.cantidad,
+    descripcion:this.descripcion,
+    precio:this.precio,
+    _id:this.IdSeleccionado
+    }
+   }
+
+   this.peticion.put(post.host + post.path,post.payload).then((res:any) => {
+    this.respuestaapi = res 
+    
+    
+  Swal.fire({
+      title: res.state == true? "Que bien":"Ouch",
+      text: res.mensaje,
+      icon: res.state == true?"success":"error"
+      });
+      if(res.state == true){
+        $('#exampleModal').modal('hide')
+        this.CargarTodas()
+      }
+   })
+}
+
+  Eliminar(){
+   let post = {
+    host:this.peticion.urlreal,
+    path:"/inventario/Eliminar",
+    payload:{
+    _id:this.IdSeleccionado
+    }
+}
+    this.peticion.Delete(post.host + post.path,post.payload).then((res:any) => {
+      this.respuestaapi = res
+
+          Swal.fire({
+          title: res.state == true? "Que bien":"Ouch",
+          text: res.mensaje,
+          icon: res.state == true?"success":"error"
+          });
+          if(res.state == true){
+            $('#exampleModal').modal('hide')
+            this.CargarTodas()
+          }
+    })
+    }
+
 }
