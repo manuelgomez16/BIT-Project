@@ -1,0 +1,38 @@
+<app-sidebar></app-sidebar>
+
+<div class="main-content">
+  <h1>Productos</h1>
+
+  <!-- Tabla -->
+  <div class="table-container">
+    <table class="table-custom">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Angular loop -->
+        <tr *ngFor="let p of productos">
+          <td>{{ p.codigo }}</td>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.precio | currency:'COP':'symbol':'1.0-0' }}</td>
+          <td>
+            <button class="btn btn-sm btn-warning" (click)="editar(p)">Editar</button>
+            <button class="btn btn-sm btn-danger" (click)="eliminar(p._id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Botón flotante para nuevo producto -->
+<div class="btnNuevo bg-primary" (click)="nuevo()">
+  <i class="fa-solid fa-plus"></i>
+</div>
+
+<app-footer></app-footer>

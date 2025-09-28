@@ -11,6 +11,10 @@ import { ActivarComponent } from './componentes/activar/activar.component';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { PersonalComponent } from './componentes/personal/personal.component';
 import { ActualizarpassComponent } from './componentes/actualizarpass/actualizarpass.component';
+import { MisionComponent } from './componentes/mision/mision.component';
+import { VisionComponent } from './componentes/vision/vision.component';
+import { ContactenosComponent } from './componentes/contactenos/contactenos.component';
+import { ProductosComponent } from './componentes/productos/productos.component';
 
 export const routes: Routes = [
     {path:"",component:HomeComponent,pathMatch:"full"},
@@ -26,4 +30,8 @@ export const routes: Routes = [
     {path:"dashboard",component:DashboardComponent,pathMatch:"full"},
     {path:"personal",component:PersonalComponent,pathMatch:"full"},
     {path:"actualizarpass",component:ActualizarpassComponent,pathMatch:"full"},
+    {path:"mision",component:MisionComponent,pathMatch:"full"},
+    {path:"vision",component:VisionComponent,pathMatch:"full"},
+    {path:"contactenos",component:ContactenosComponent,pathMatch:"full"},
+    {path:"productos",component:ProductosComponent,pathMatch:"full"},
 ];

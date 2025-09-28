@@ -1,18 +1,90 @@
-
-.login {
-    width: 360px;
-    background: black;
-    color: white;
-    padding: 25px;
-    border-radius: 22px;
-    margin-left: calc(50% - 180px);
-    margin-top: 234px;
+html, body, .page-wrapper {
+  height: 100%;
+  margin: 0;
 }
 
-button.btn.btn-primary {
-    width: 80px;
-    background: white;
-    color: black;
-    border-radius: 17px;
-    margin-left: calc(50% - 40px);
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+}
+
+.content {
+  flex: 1;                /* takes up remaining space */
+  display: flex;          /* center the login box */
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;        /* some breathing space */
+}
+
+.login {
+  max-width: 400px;
+  width: 90%;
+  background-color: #343a40;
+  padding: 30px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+}
+
+.login h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.login .form-group {
+  margin-bottom: 15px;
+}
+
+.login label {
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.login input.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  background-color: #ffffff;
+  color: #212529;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login input.form-control:focus {
+  border-color: #adb5bd;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+  outline: none;
+}
+
+.login .btn.btn-primary {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #343a40 !important;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  outline: none;
+  box-shadow: none;
+  margin-top: 10px; /* small gap below fields */
+}
+
+.login .btn.btn-primary:hover {
+  background-color: #e2e6ea !important;
+  border-color: #dee2e6 !important;
+  color: #212529 !important;
+}
+
+.login .btn.btn-primary:focus,
+.login .btn.btn-primary:active {
+  background-color: #dee2e6 !important;
+  border-color: #ced4da !important;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15) !important;
+  outline: none !important;
 }

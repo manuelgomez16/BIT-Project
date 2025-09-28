@@ -6,7 +6,7 @@
     height: 100vh;              /* full viewport height */
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, #31498f 0%, #4e73df 100%);
+    background: linear-gradient(180deg, #000000 0%, #8d8d8d 100%);
     color: #fff;
     font-family: Arial, sans-serif;
     overflow-y: auto;

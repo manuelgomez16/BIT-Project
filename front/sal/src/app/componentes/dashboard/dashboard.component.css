@@ -46,3 +46,85 @@
     align-items: center;
 
 }
+
+#content-wrapper .topbar,
+#content-wrapper .topbar .navbar,
+#content-wrapper .topbar .nav-link,
+#content-wrapper .topbar .navbar-nav .nav-item .nav-link,
+#content-wrapper .topbar .user-info,
+#content-wrapper .topbar .user-text,
+#content-wrapper .topbar .user-name,
+#content-wrapper .topbar .lblrol,
+#content-wrapper .topbar .dropdown-item,
+#content-wrapper .topbar .dropdown-header {
+  color: #343a40 !important;
+}
+
+#content-wrapper .badge,
+#content-wrapper .badge-counter {
+  color: #fff !important;
+  background-color: #e74a3b !important;
+}
+
+#content-wrapper .dropdown-menu {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
+
+#content-wrapper .fa,
+#content-wrapper .fas,
+#content-wrapper .far,
+#content-wrapper .fab {
+  color: inherit !important;
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#content-wrapper,
+#content-wrapper .container-fluid,
+#content-wrapper h1,
+#content-wrapper h2,
+#content-wrapper h3,
+#content-wrapper p,
+#content-wrapper .text-gray-800,
+#content-wrapper .card,
+#content-wrapper .card-body,
+#content-wrapper .card-header,
+#content-wrapper .small,
+#content-wrapper .font-weight-bold {
+  color: #212529 !important;
+}
+
+.topbar-divider {
+  background-color: rgba(0,0,0,0.12) !important;
+}
+
+.navbar-search .form-control,
+.topbar .navbar-search .form-control {
+  color: #212529 !important;
+  background-color: #f8f9fa !important;
+}
+
+#content-wrapper .img-profile {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
+
+
+.text-gray-800 { color: #5a5c69 !important; }
+.text-gray-500 { color: #858796 !important; }
+.text-white-50 { color: rgba(255,255,255,0.5) !important; }
+
+.btn-primary {
+  background-color: #000 !important;
+  border-color: #000 !important;
+  color: #fff !important;
+}
+.btn-primary:hover {
+  background-color: #222 !important;
+  border-color: #222 !important;
+}

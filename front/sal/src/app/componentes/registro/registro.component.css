@@ -1,17 +1,105 @@
-.registro {
-    width: 360px;
-    background: black;
-    color: white;
-    margin-left: calc(50% - 180px);
-    padding: 39px;
-    border-radius: 25px;
-    margin-top: 121px;
+body {
+  background-color: #1d1f21;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
-button.btn.btn-primary {
-    width: 120px;
-    background: white;
-    color: black;
-    border-radius: 17px;
-    margin-left: calc(50% - 60px);
+.registro {
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 30px 28px;
+  background-color: #343a40;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.registro h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.registro .form-group {
+  margin-bottom: 20px;
+}
+
+.registro label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.registro input[type="text"],
+.registro input[type="email"],
+.registro input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #212529;
+  transition: border-color 0.3s ease;
+}
+
+.registro input:focus {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  background-color: #ffffff;
+  color: #212529;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registro input.form-control:focus {
+  border-color: #adb5bd;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+  outline: none;
+}
+
+.registro .btn.btn-primary {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #343a40 !important;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  outline: none;
+  box-shadow: none;
+}
+
+.registro .btn.btn-primary:hover {
+  background-color: #e2e6ea !important;
+  border-color: #dee2e6 !important;
+  color: #212529 !important;
+}
+
+.registro .btn.btn-primary:focus,
+.registro .btn.btn-primary:active {
+  background-color: #dee2e6 !important;
+  border-color: #ced4da !important;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15) !important;
+  outline: none !important;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
 }

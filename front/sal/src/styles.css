@@ -1,6 +1,80 @@
-/* You can add global styles to this file, and also import other style files */
+.areadetrabajo {
+  position: absolute;
+  top: 0;
+  left: 180px;
+  width: calc(100% - 180px);
+  height: 100vh;
+  background: #f8f9fa;
+  overflow-y: auto;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.tituloarea {
+  font-size: 32px;
+  font-weight: 700;
+  color: #343a40;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+  margin-top: 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+a.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff !important;
+}
+
 .container {
-  display: flex;
-  flex-direction: row; /* Acomoda los elementos en fila */
-  height: 100vh; /* Que ocupe toda la altura de la ventana */
+  max-width: 1200px;
+}
+
+.lh-condensed {
+  line-height: 1.25;
+}
+
+nav.navbar.navbar-expand-md.sticky-top.py-1 {
+  background-color: rgba(52, 58, 64, 0.95);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  color: white;
+}
+
+nav.navbar,
+nav.navbar * {
+  color: #ffffff !important;
+}
+
+nav.navbar a.nav-link:hover,
+nav.navbar .navbar-brand:hover {
+  color: #ffffff  !important;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+ul.navbar-nav.mr-auto {
+  margin: auto;
+  text-indent: 88px;
+}
+
+li.nav-item.logo {
+  margin-top: 6px;
+  color: #fdfdfd;
+  font-weight: 500;
+}
+
+a.btn.btn-outline-secondary.botonblack {
+  color: #fff;
+  border-color: #fff;
+  background-color: transparent;
+}
+
+a.btn.btn-outline-secondary.botonblack:hover {
+  background-color: #fff;
+  color: #222;
+  border-color: #fff;
 }

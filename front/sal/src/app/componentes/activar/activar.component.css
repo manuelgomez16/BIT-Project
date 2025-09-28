@@ -1,16 +1,67 @@
-.formactivar {
-    width: 360px;
-    background: black;
-    color: white;
-    padding: 30px;
-    border-radius: 26px;
-    margin-top: 134px;
-    margin-left: calc(50% - 180px);
+.activar {
+  max-width: 400px;
+  margin: 60px auto;
+  background-color: #343a40;
+  padding: 30px 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  font-family: 'Segoe UI', sans-serif;
 }
 
-button.btn.btn-primary {
-    background: #fff;
-    color: black;
-    width: 150px;
-    margin-left: calc(50% - 75px);
+.activar h3 {
+  color: #ffffff;
+}
+
+.activar .form-group {
+  margin-bottom: 20px;
+}
+
+.activar label {
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.activar input.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  background-color: #ffffff;
+  color: #212529;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activar input.form-control:focus {
+  border-color: #adb5bd;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+  outline: none;
+}
+
+.activar .btn.btn-primary {
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #343a40 !important;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  outline: none;
+  box-shadow: none;
+}
+
+.activar .btn.btn-primary:hover {
+  background-color: #e2e6ea !important;
+  border-color: #dee2e6 !important;
+  color: #212529 !important;
+}
+
+.activar .btn.btn-primary:focus,
+.activar .btn.btn-primary:active {
+  background-color: #dee2e6 !important;
+  border-color: #ced4da !important;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15) !important;
+  outline: none !important;
 }
