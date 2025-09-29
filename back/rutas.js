@@ -27,8 +27,6 @@ app.delete("/usuarios/Eliminar", security.Soloadmin, function(request, response)
 
 
 
-
-
 app.post("/usuarios/Registrar", function(request, response){
     usuariosController.Registrar(request, response)
 })
@@ -64,7 +62,6 @@ app.post("/usuarios/ActualizarPass", function(request, response){
 
 
 
-
 var inventarioController = require("./apis/controllers/inventarioController.js").inventarioController
 
 app.post("/inventario/Guardar", security.Soloadmin, function(request, response){
@@ -85,4 +82,12 @@ app.put("/inventario/Actualizar", security.Soloadmin, function(request, response
 
 app.delete("/inventario/Eliminar", security.Soloadmin, function(request, response){
     inventarioController.Eliminar(request, response)
+})
+
+
+
+var anexosController = require("./apis/controllers/anexosController.js").anexosController
+
+app.post("/anexos/AnexosProductos/:nombre", function(request, response){
+    anexosController.AnexosProductos(request, response)
 })

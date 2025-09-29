@@ -3,9 +3,8 @@ import { HeaderComponent } from '../header/header.component';
 import { CommonModule } from '@angular/common';
 import { PeticionService } from '../../servicios/peticion.service';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 declare var $:any
-declare var  Swal:any
-
 
 @Component({
   selector: 'app-inventario',
@@ -25,6 +24,7 @@ cantidad:string="0"
 precio:string= ""
 IdSeleccionado: string = ""
 selectedFile!:File
+aleatorio:number = 1
 respuestaapi:any = {}
 
   ngOnInit(): void {
@@ -149,6 +149,7 @@ respuestaapi:any = {}
           text: res.mensaje,
           icon: res.state == true?"success":"error"
           });
+
           if(res.state == true){
             $('#exampleModal').modal('hide')
             this.CargarTodas()
@@ -159,8 +160,36 @@ respuestaapi:any = {}
   uploadFile(){
     var post = {
       host:this.peticion.urlreal,
-      path:""
+      path:"/anexos/AnexosProductos/" + this.IdSeleccionado
     }
+
+    this.peticion.UploadFile(this.selectedFile,post.host + post.path).subscribe((res:any) => {
+
+          if(res.state == true){
+            Swal.fire({
+            title: "Que Bien",
+            text: res.mensaje,
+            icon: "success"
+            });
+            this.Random()
+            $('#exampleModal').modal('hide')
+          }
+          else
+            Swal.fire({
+            title: "Ouch",
+            text: res.error,
+            icon: "error"
+            });
+    })
+
+  }
+
+  onFileSelected(event:any){
+    this.selectedFile = event.target.files[0]
+  }
+
+  Random(){
+    this.aleatorio = Math.floor(Math.random() * (9999 - 1000) + 1000);
   }
 
 }

@@ -95,7 +95,7 @@ inventarioModel.existeid(post,function(existe){
     }else{
         inventarioModel.Actualizar(post,function(respuesta){
             if(respuesta.state == true){
-                response.json({state:true,mensaje:"se ha Actualizado el elemento"})
+                response.json({state:true,mensaje:"Se ha actualizado el elemento"})
             }else{
                  response.json({state:false,mensaje:"error al Actualizar el elemento"})
             }

@@ -11,9 +11,8 @@ const cors = require("cors")
 const { config } = require('./config.js')
 const session = require("express-session")
 const mongostore = require("connect-mongo")
-
-
-
+global.path = require("path")
+global.appRoot = path.resolve(__dirname)
 
 app.use((req, res, next) => {
   const origin = req.headers.origin;
@@ -83,6 +82,8 @@ app.use(cors({
             }
     }
 }))
+
+app.use("/imagenes", express.static(__dirname + '/imagenes'))
 
 app.listen(config.puerto, function(){
     console.log("Servidor funcionando por el puerto" + config.puerto)

@@ -7,6 +7,7 @@
     <table class="table-custom">
       <thead>
         <tr>
+          <th>Imagen</th>
           <th>Codigo</th>
           <th>Nombre</th>
           <th>Precio</th>
@@ -14,20 +15,21 @@
 
         </tr>
       </thead>
+
       <tbody>
-
-
-        <ng-container *ngFor="let item of datos" >
-        <tr (click)="Cargarid(item._id)">
-          <td>{{item.codigo}}</td>
-          <td>{{item.nombre}} </td>
-          <td>{{item.precio | currency:"COP "}}</td>
-          <td>{{item.cantidad}}</td>
-
-        </tr>
+        <ng-container *ngFor="let item of datos">
+          <tr (click)="Cargarid(item._id)">
+            <td>
+              <img src="{{peticion.urlreal}}/imagenes/{{item._id}}.png?v={{aleatorio}}" class="imagenmuestra" alt="">
+            </td>
+            <td>{{item.codigo}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.precio | currency:"COP "}}</td>
+            <td>{{item.cantidad}}</td>
+          </tr>
         </ng-container>
-        
       </tbody>
+
     </table>
     
   </div>
@@ -42,13 +44,25 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nuevo item</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar item</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-          <div class="form-group">
+
+      <div *ngIf="IdSeleccionado != ''">
+          <label for="upimagen" id="miimagen">
+              <img src="{{peticion.urlreal}}/imagenes/{{IdSeleccionado}}.png?v={{aleatorio}}" 
+                  class="miimagen" alt="">
+              <i class="fa-solid fa-camera"></i>
+          </label>
+
+          <input type="file" id="upimagen" (change)="onFileSelected($event)">
+          <div class="btn btn-primary" (click)="uploadFile()">Subir Imagen</div>
+      </div>
+
+  <div class="form-group">
     <label for="codigo">Codigo </label>
     <input type="text" class="form-control" id="codigo" [(ngModel)]="codigo" [disabled]="IdSeleccionado != '' ">
   </div>
@@ -71,9 +85,9 @@
 </div>
       </div>
       <div class="modal-footer">
-<button type="button" class="btn btn-primary" (click)="Guardar()" *ngIf="IdSeleccionado == ''">Guardar</button>
- <button type="button" class="btn btn-primary" (click)="Actualizar()" *ngIf="IdSeleccionado != ''">Actualizar</button>
- <button type="button" class="btn btn-danger" (click)="Eliminar()" *ngIf="IdSeleccionado != ''">Eliminar</button>
+        <button type="button" class="btn btn-primary" (click)="Guardar()" *ngIf="IdSeleccionado == ''">Guardar</button>
+        <button type="button" class="btn btn-primary" (click)="Actualizar()" *ngIf="IdSeleccionado != ''">Actualizar</button>
+        <button type="button" class="btn btn-danger" (click)="Eliminar()" *ngIf="IdSeleccionado != ''">Eliminar</button>
       </div>
       </div>
     </div>
