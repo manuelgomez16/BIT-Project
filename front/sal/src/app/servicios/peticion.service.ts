@@ -10,8 +10,8 @@ export class PeticionService {
   constructor(private http:HttpClient) { }
 
 
-  urlreal:string = "http://localhost:3000"
-  //urlreal:string = " "
+  //urlreal:string = "http://localhost:3000"
+  urlreal:string = " "
 
   
   requestOptions:any = {}
